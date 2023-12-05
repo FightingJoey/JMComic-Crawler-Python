@@ -94,6 +94,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
+          pdf-compressor --set-api-key project_public_4347e7c4b47744d159957d08e00e271c_CLQKO3d0af1b14791ddae07880d7387a015b2
           sudo apt install ghostscript
 
       - name: 安装jmcomic（pip）
@@ -115,6 +116,11 @@ jobs:
         run: |
           cd ./usage/
           python convert_pdf.py
+      
+      - name: 压缩PDF
+        run: |
+          cd ./usage/
+          python compressor_pdf.py
 
       - name: 压缩文件
         run: |
