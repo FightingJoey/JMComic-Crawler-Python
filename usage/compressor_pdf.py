@@ -1,5 +1,6 @@
 import aspose.pdf as ap
 import os, sys
+from jmcomic.cl import get_env
   
 def get_all_pdfs(directory):  
     pdfs = []  # 用来存放所有PDF文件的列表  
