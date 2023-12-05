@@ -43,10 +43,10 @@ def main():
     #     4: '/screen'
     # }
     for pdf in pdfs:
-        # file_name = os.path.basename(pdf)[:-4]
-        # directory = os.path.dirname(pdf)
-        # compress_pdf = os.path.join(directory, file_name + '-compress.pdf')
-        # print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
+        file_name = os.path.basename(pdf)[:-4]
+        directory = os.path.dirname(pdf)
+        compress_pdf = os.path.join(directory, file_name + '-compress.pdf')
+        print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
         # compress(pdf, compress_pdf)
 
         subprocess.call(f'pdf-compressor --compression-level low "{pdf}"')
