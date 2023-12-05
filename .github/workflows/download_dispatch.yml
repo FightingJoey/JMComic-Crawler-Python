@@ -95,10 +95,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
           sudo apt install ghostscript
-          sudo apt-get install -y ttf-mscorefonts-installer
-          sudo apt-get install fontconfig
-          fc-cache -fv
-          fc-match Arial
 
       - name: 安装jmcomic（pip）
         if: ${{ github.ref != 'refs/heads/dev' }}
