@@ -29,7 +29,7 @@ def main():
     for pdf in pdfs:
         file_name = os.path.basename(pdf)[:-4]
         directory = os.path.dirname(pdf)
-        compress_pdf = os.path.join(directory, file_name + '_compress.pdf')
+        compress_pdf = os.path.join(directory, file_name + '-compress.pdf')
         print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
         compress(pdf, compress_pdf)
         os.remove(pdf)
