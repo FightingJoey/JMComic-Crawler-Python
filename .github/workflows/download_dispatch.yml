@@ -95,6 +95,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-dev.txt
           sudo apt install ghostscript
+          sudo apt-get update
+          sudo apt-get install fonts-wqy-zenhei
 
       - name: 安装jmcomic（pip）
         if: ${{ github.ref != 'refs/heads/dev' }}
