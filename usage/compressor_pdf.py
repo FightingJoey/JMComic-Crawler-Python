@@ -1,3 +1,4 @@
+# -*- coding:UTF-8 -*-
 import aspose.pdf as ap
 import os, sys
 from jmcomic.cl import get_env
@@ -15,25 +16,23 @@ def get_all_pdfs(directory):
     return pdfs
 
 def compress(source, output):
-	compressPdfDocument = ap.Document(source)  # 需要压缩的pdf文件路径
-	pdfoptimizeOptions = ap.optimization.OptimizationOptions()
-	pdfoptimizeOptions.image_compression_options.compress_images = True
-	pdfoptimizeOptions.image_compression_options.image_quality = 10
-	compressPdfDocument.optimize_resources(pdfoptimizeOptions)
-	compressPdfDocument.save(output)  # 需要压缩后保存的文件路径
+    compressPdfDocument = ap.Document(source)  # 需要压缩的pdf文件路径
+    pdfoptimizeOptions = ap.optimization.OptimizationOptions()
+    pdfoptimizeOptions.image_compression_options.compress_images = True
+    pdfoptimizeOptions.image_compression_options.image_quality = 10
+    compressPdfDocument.optimize_resources(pdfoptimizeOptions)
+    compressPdfDocument.save(output)  # 需要压缩后保存的文件路径
 
 def main():
-	root = get_env('JM_DOWNLOAD_DIR', None)
-	pdfs = get_all_pdfs(root)
-	for pdf in pdfs:
-		file_name = os.path.basename(pdf)[:-4]
-		directory = os.path.dirname(pdf)
-		compress_pdf = os.path.join(directory, file_name + '_compress.pdf')
-		compress(pdf, compress_pdf)
-		os.remove(pdf)
+    root = get_env('JM_DOWNLOAD_DIR', None)
+    pdfs = get_all_pdfs(root)
+    for pdf in pdfs:
+        file_name = os.path.basename(pdf)[:-4]
+        directory = os.path.dirname(pdf)
+        compress_pdf = os.path.join(directory, file_name + '_compress.pdf')
+        print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
+        compress(pdf, compress_pdf)
+        os.remove(pdf)
 
 if __name__ == '__main__':
     main()
-
-
-
