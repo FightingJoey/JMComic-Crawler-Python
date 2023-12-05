@@ -34,29 +34,24 @@ def get_ghostscript_path():
 def main():
     root = get_env('JM_DOWNLOAD_DIR', None)
     pdfs = get_all_pdfs(root)
-    gs = get_ghostscript_path()
-    quality = {
-        0: '/default',
-        1: '/prepress',
-        2: '/printer',
-        3: '/ebook',
-        4: '/screen'
-    }
+    # gs = get_ghostscript_path()
+    # quality = {
+    #     0: '/default',
+    #     1: '/prepress',
+    #     2: '/printer',
+    #     3: '/ebook',
+    #     4: '/screen'
+    # }
     for pdf in pdfs:
-        file_name = os.path.basename(pdf)[:-4]
-        directory = os.path.dirname(pdf)
-        compress_pdf = os.path.join(directory, file_name + '-compress.pdf')
-        print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
+        # file_name = os.path.basename(pdf)[:-4]
+        # directory = os.path.dirname(pdf)
+        # compress_pdf = os.path.join(directory, file_name + '-compress.pdf')
+        # print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
         # compress(pdf, compress_pdf)
 
-        subprocess.call([gs, '-sDEVICE=pdfwrite', '-dCompatibilityLevel=1.4',
-                    '-dPDFSETTINGS={}'.format(quality[3]),
-                    '-dNOPAUSE', '-dQUIET', '-dBATCH',
-                    '-sOutputFile={}'.format(compress_pdf),
-                     pdf]
-                     )
+        subprocess.call(f"pdf-compressor --compression-level low {pdf}")
 
-        os.remove(pdf)
+        # os.remove(pdf)
 
 if __name__ == '__main__':
     main()
