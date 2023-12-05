@@ -112,6 +112,7 @@ jobs:
 
       - name: 转化PDF
         run: |
+          cd ./usage/
           python convert_pdf.py
 
       - name: 压缩文件
