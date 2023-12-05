@@ -49,7 +49,7 @@ def main():
         # print(f"源文件: {pdf}, 压缩文件: {compress_pdf}")
         # compress(pdf, compress_pdf)
 
-        subprocess.call(f"pdf-compressor --compression-level low {pdf}")
+        subprocess.call(f'pdf-compressor --compression-level low "{pdf}"')
 
         # os.remove(pdf)
 
