@@ -110,6 +110,10 @@ jobs:
           cd ./usage/
           python workflow_download.py
 
+      - name: 转化PDF
+        run: |
+          python convert_pdf.py
+
       - name: 压缩文件
         run: |
           cd $JM_DOWNLOAD_DIR
