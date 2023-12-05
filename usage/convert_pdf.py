@@ -4,6 +4,7 @@ from PIL import Image
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 from PyPDF2 import PdfReader, PdfWriter
+from jmcomic.cl import get_env
 
 output_dirs = []
 
@@ -100,14 +101,13 @@ def deldir(dir):
 
 
 def main():
-    root = sys.argv[1]
+    root = get_env('JM_DOWNLOAD_DIR', None)
     convert(root)
     for output in output_dirs:
         if output == root + '/output':
             continue
         merge_all(output)
     print("所有PDF合并完成！")
-    return root
 
 if __name__ == '__main__':
-    print(main(), end='')
+    main()
