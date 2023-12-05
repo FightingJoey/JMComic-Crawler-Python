@@ -6,3 +6,4 @@ psutil
 pycryptodome
 requests
 pypdf2
+aspose-pdf
