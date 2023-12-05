@@ -96,7 +96,7 @@ jobs:
           pip install -r requirements-dev.txt
           sudo apt install ghostscript
           sudo apt-get update
-          sudo apt-get install fonts-wqy-zenhei
+          sudo apt install ttf-mscorefonts-installer
           sudo fc-cache
           fc-match Arial
 
