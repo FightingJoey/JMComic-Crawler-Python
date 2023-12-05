@@ -97,6 +97,8 @@ jobs:
           sudo apt install ghostscript
           sudo apt-get update
           sudo apt-get install fonts-wqy-zenhei
+          sudo fc-cache
+          fc-match Arial
 
       - name: 安装jmcomic（pip）
         if: ${{ github.ref != 'refs/heads/dev' }}
