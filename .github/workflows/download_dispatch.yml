@@ -116,11 +116,6 @@ jobs:
           cd ./usage/
           python convert_pdf.py
 
-      - name: 压缩PDF
-        run: |
-          cd ./usage/
-          python compressor_pdf.py
-
       - name: 压缩文件
         run: |
           cd $JM_DOWNLOAD_DIR
